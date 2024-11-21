@@ -1,0 +1,47 @@
+# Installation Instructions
+
+Download the .gguf model to run llama_test.py
+https://huggingface.co/TheBloke/vicuna-7B-v1.5-GGUF/blob/main/vicuna-7b-v1.5.Q4_K_M.gguf
+
+
+To install the required packages, run the following commands:
+```bash
+pip install -r requirements.txt
+git clone https://github.com/FasterDecoding/Medusa.git
+cd Medusa
+pip install -e .
+```
+
+RUN main.ipynb in colab for Medusa approach.
+RUN llama_test.py to see basic initialization of llama_cpp using a .gguf downloaded from HF.
+
+## Implementation Report
+
+1. FastAPI Service Setup
+2. Successfully implemented FastAPI service with proper endpoints
+3. Implemented request/response models and background tasks
+4. Added health check endpoint
+5. Dynamic Batching
+6. Implemented batch processing with configurable batch size (BATCH_SIZE = 8)
+7. Added batch timeout mechanism (BATCH_TIMEOUT = 0.1)
+8. Implemented async queue for request handling
+9. Medusa Integration
+10. Successfully integrated Medusa model initialization
+11. Implemented generation with Medusa's multiple decoding heads
+12. Used proper model configuration for Medusa-based generation
+
+## Side Implementation
+
+1. Basic llama.cpp model initialization
+2. Custom MedusaHead implementation attempt
+3. Basic Speculative decoding logic
+4. Utilized .gguf model 
+
+
+## Side Note:
+    - MedusaHead and llama_cpp require different formats.
+    - Had the idea of doing them together i.e use llama_cpp for base inference, utilize Medusa for speculation / candidate generation
+      and llama_cpp to verify candidates. But am not sure on proper implementation without synchronization problems.
+    - Also GGUF format doesn't support extra heads?
+    
+Was not sure on how to implement both the models together, thanks.

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+nest-asyncio
+transformers
+accelerate
+bitsandbytes
+pyngrok
+torch
+llama-cpp-python
+numpy
+pytest
+httpx
+pydantic
